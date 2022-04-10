@@ -3,7 +3,7 @@ from tkinter import ttk
 
 def nevjegy():
     abl2 = Toplevel(ablak1)
-    uz2 = Message(abl2, text="Készítette: Gipsz Jakab\n2022.04.05", width=300)
+    uz2 = Message(abl2, text="Készítette: Kecskés Zsolt\n2022.04.10", width=300)
     kilep = Button(abl2, text="Exit", command=abl2.destroy)
     uz2.pack()
     kilep.pack()
@@ -82,7 +82,7 @@ def terfogat():
         bb = float(b.get())
         cc = float(c.get())
         hiba = False
-        f = (a*b*c)
+        f = (aa*bb*cc)
         if aa <= 0:
            a.delete(0, END)
            a.insert(0, "Érvénytelen adat!")
