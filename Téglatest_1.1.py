@@ -31,23 +31,16 @@ def felszin():
         if hiba == True:
             return None
         else:
-            abl2 = Toplevel(ablak1)
-            abl2.maxsize(210, 50)
-            abl2.minsize(210, 50)
-            abl2.title("Eredmények")
-            Label(
-            abl2,
-            text='Felszín (cm²):',
-            bg='#eeeeee'
-            ).grid(row=1, column=0)
-            v1 = Entry(abl2)
-            v1.grid(row=1, column=1)
             v1.delete(0, END)
             v1.insert(0, str(f))
-            abl2.mainloop()
+    def Törlés():
+        a.delete(0, END)
+        b.delete(0, END)
+        c.delete(0, END)
+        v1.delete(0, END)
     fel = Toplevel(ablak1)
-    fel.maxsize(220, 100)
-    fel.minsize(220, 100)
+    fel.maxsize(220, 120)
+    fel.minsize(220, 120)
     Label(
     fel,
     text='Hossz (cm):', 
@@ -72,8 +65,17 @@ def felszin():
     b.grid(row=1, column=1)
     c = ttk.Entry(fel)
     c.grid(row=2, column=1)
-    gomb = Button(fel, text = "Kiszámít", command = teszt)
-    gomb.grid(row=3, column=0, sticky = "w") # Gomb
+    gomb1 = Button(fel, text = "Kiszámít", command = teszt)
+    gomb1.grid(row=3, column=0, sticky = "w") # Gomb
+    gomb2 = Button(fel, text = "Töröl", command = Törlés)
+    gomb2.grid(row=3, column=1, sticky = "e") # Gomb
+    Label(
+    fel,
+    text='Felszín (cm²):',
+    bg='#eeeeee'
+    ).grid(row=4, column=0)
+    v1 = Entry(fel)
+    v1.grid(row=4, column=1)
     fel.mainloop()
 
 def terfogat():
@@ -82,7 +84,7 @@ def terfogat():
         bb = float(b.get())
         cc = float(c.get())
         hiba = False
-        f = (aa*bb*cc)
+        f = aa*bb*cc
         if aa <= 0:
            a.delete(0, END)
            a.insert(0, "Érvénytelen adat!")
@@ -98,23 +100,16 @@ def terfogat():
         if hiba == True:
             return None
         else:
-            abl2 = Toplevel(ablak1)
-            abl2.maxsize(210, 50)
-            abl2.minsize(210, 50)
-            abl2.title("Eredmények")
-            Label(
-            abl2,
-            text='Térfogat (cm²):',
-            bg='#eeeeee'
-            ).grid(row=1, column=0)
-            v1 = Entry(abl2)
-            v1.grid(row=1, column=1)
             v1.delete(0, END)
             v1.insert(0, str(f))
-            abl2.mainloop()
+    def Törlés():
+        a.delete(0, END)
+        b.delete(0, END)
+        c.delete(0, END)
+        v1.delete(0, END)
     fel = Toplevel(ablak1)
-    fel.maxsize(220, 100)
-    fel.minsize(220, 100)
+    fel.maxsize(220, 120)
+    fel.minsize(220, 120)
     Label(
     fel,
     text='Hossz (cm):', 
@@ -139,92 +134,18 @@ def terfogat():
     b.grid(row=1, column=1)
     c = ttk.Entry(fel)
     c.grid(row=2, column=1)
-    gomb = Button(fel, text = "Kiszámít", command = teszt)
-    gomb.grid(row=3, column=0, sticky = "w") # Gomb
+    gomb1 = Button(fel, text = "Kiszámít", command = teszt)
+    gomb1.grid(row=3, column=0, sticky = "w") # Gomb
+    gomb2 = Button(fel, text = "Töröl", command = Törlés)
+    gomb2.grid(row=3, column=1, sticky = "e") # Gomb
+    Label(
+    fel,
+    text='Térfogat (cm³):',
+    bg='#eeeeee'
+    ).grid(row=4, column=0)
+    v1 = Entry(fel)
+    v1.grid(row=4, column=1)
     fel.mainloop()
-
-"""
-Label(
-    ablak1,
-    text='Hossz (cm):', 
-    bg='#eeeeee'
-).grid(row=0, column=0)
-
-Label(
-    ablak1,
-    text='Vastagság (cm):',
-    bg='#eeeeee'
-).grid(row=1, column=0)
-
-Label(
-    ablak1,
-    text='Szélesség (cm):',
-    bg='#eeeeee'
-).grid(row=2, column=0)
-
-a = ttk.Entry(ablak1)
-a.grid(row=0, column=1)
-b = ttk.Entry(ablak1)
-b.grid(row=1, column=1)
-c = ttk.Entry(ablak1)
-c.grid(row=2, column=1)
-gomb = Button(ablak1, text = "Kiszámít", command = teszt).grid(row=3, column=1, sticky = "e") # Gomb
-
-
-def teszt():
-    aa = float(a.get())
-    bb = float(b.get())
-    cc = float(c.get())
-    hiba = False
-    f = 2*(aa*bb+bb*cc+aa*cc)
-    t = aa*bb*cc
-    if aa <= 0:
-        a.delete(0, END)
-        a.insert(0, "Érvénytelen adat!")
-        hiba = True
-    if bb <= 0:
-        b.delete(0, END)
-        b.insert(0, "Érvénytelen adat!")
-        hiba = True
-    if cc <= 0:
-        c.delete(0, END)
-        c.insert(0, "Érvénytelen adat!")
-        hiba = True
-    if hiba == True:
-        return None
-    else:
-        abl2 = Toplevel(ablak1)
-        abl2.maxsize(210, 50)
-        abl2.minsize(210, 50)
-        abl2.title("Eredmények")
-        Label(
-        abl2,
-        text='Térfogat (cm³):',
-        bg='#eeeeee'
-        ).grid(row=0, column=0)
-
-        Label(
-        abl2,
-        text='Felszín (cm²):',
-        bg='#eeeeee'
-        ).grid(row=1, column=0)
-        v = Entry(abl2)
-
-        v.grid(row=0, column=1)
-
-        v1 = Entry(abl2)
-
-        v1.grid(row=1, column=1)
-
-        v.delete(0, END)
-        v.insert(0, str(t))
-        v1.delete(0, END)
-        v1.insert(0, str(f))
-        abl2.mainloop()
-
-
-
-"""
 
 ablak1 = Tk()
 ablak1.title("IKT Projekt - Szenvedés - 2022.04.06")
